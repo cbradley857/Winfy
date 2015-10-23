@@ -27,8 +27,8 @@ namespace Winfy.ViewModels {
 		public event EventHandler<ToggleVisibilityEventArgs> ToggleVisibility;
 		public event EventHandler CoverDisplayFadeOut;
 		public event EventHandler CoverDisplayFadeIn;
-		
-		public ShellViewModel(IWindowManager windowManager, ISpotifyController spotifyController, ICoverService coverService, IEventAggregator eventAggregator, AppSettings settings, Core.ILog logger, IUpdateService updateService, IUsageTrackerService usageTrackerService, IBroadcastService broadcastService) {
+
+        public ShellViewModel(IWindowManager windowManager, ISpotifyController spotifyController, ICoverService coverService, IEventAggregator eventAggregator, AppSettings settings, Core.ILog logger, IUpdateService updateService, IUsageTrackerService usageTrackerService, IBroadcastService broadcastService) {
 			_WindowManager = windowManager;
 			_SpotifyController = spotifyController;
 			_CoverService = coverService;
@@ -244,7 +244,7 @@ namespace Winfy.ViewModels {
 			Execute.OnUIThread(() => {
 								   if (_Settings.DisableAnimations)
 									   return;
-
+                                   
 								   var handler = CoverDisplayFadeOut;
 								   if (handler != null) handler(this, EventArgs.Empty);
 							   });
@@ -254,7 +254,7 @@ namespace Winfy.ViewModels {
 			Execute.OnUIThread(() => {
 								   if (_Settings.DisableAnimations)
 									   return;
-
+                                   
 								   var handler = CoverDisplayFadeIn;
 								   if (handler != null) handler(this, EventArgs.Empty);
 							   });

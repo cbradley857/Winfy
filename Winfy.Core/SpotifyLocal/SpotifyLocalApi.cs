@@ -116,7 +116,7 @@ namespace Winfy.Core.SpotifyLocal {
 
 
                 var coverId = (from line in lines
-                               where line.StartsWith("<meta property=\"og:image\"")
+                               where line.Trim().StartsWith("<meta property=\"og:image\"")
                                select line.Split(new[] {"/"}, StringSplitOptions.RemoveEmptyEntries))
                     .First() // item in resultset
                     .Last() // item in string array
@@ -237,7 +237,12 @@ namespace Winfy.Core.SpotifyLocal {
 
         /// <summary>Recieves a OAuth key from the Spotify site</summary>
         private string GetOAuth() {
-            var lines = _Client.DownloadString("https://embed.spotify.com/openplay/?uri=spotify:track:5Zp4SWOpbuOdnsxLqwgutt")
+            //Fix
+            _Client.Headers.Add("User-Agent: SpotifyAPI");
+
+
+            //
+            var lines = _Client.DownloadString("https://embed.spotify.com/openplay/?uri=spotify:track:6uQ192yNyZ4W8yoaL0Sb9p%22")
                                      .Replace(" ", "")
                                      .Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 

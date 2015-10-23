@@ -8,6 +8,7 @@ using Winfy.ViewModels;
 using Caliburn.Micro;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 using Winfy.Core.Deployment;
 using Winfy.Core.SpotifyLocal;
 
@@ -17,7 +18,7 @@ namespace Winfy {
         private AppSettings _Settings;
         private AppContracts _Contracts;
         private JsonPersister<AppSettings> _SettingsPersistor;
-
+        
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e) {
             base.OnStartup(sender, e);
 

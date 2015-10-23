@@ -54,6 +54,7 @@ namespace Winfy {
             window.WindowStyle = WindowStyle.None;
             window.ResizeMode = ResizeMode.NoResize;
             window.ShowInTaskbar = false;
+            window.Topmost = true;
             window.SourceInitialized += (o, e) => {
                                             if (!Helper.IsWindows7)
                                                 return;
